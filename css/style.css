@@ -1,0 +1,250 @@
+
+@font-face {
+    font-family: 'Bebas Neue Cyrillic';
+    src: url('../fonts/BebasNeueCyrillic.woff2') format('woff2'),
+        url('../fonts/BebasNeueCyrillic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+* {
+    box-sizing: border-box; /*правильно считать ширину*/
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.header{
+    background-color: #635854;
+    /*отступы сверху и снизу*/
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 4px solid #3596F5;
+
+}
+
+.navbar{
+    max-width: 1280px;
+    margin: auto; /*желтые отступы сетки равные*/
+    display: flex; /*элемент в ряд*/
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-menu{
+    margin:0; /*отключаем внешние отступы*/
+    padding: 0; /*отключаем внутренние отступы*/
+    list-style: none; /* отключили точки у списка */
+    display: flex;
+    text-align: center;
+}
+
+.navbar-item{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color:#fff;
+}
+
+.navbar-contacts{
+    text-align: right; /*весь текст по правому краю*/
+}
+
+.navbar-text{
+    display: block; /*линия занимает всю строчку*/
+    color:#fff;
+    margin-bottom: 4px;
+}
+
+.navbar-phone{
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none;
+    color:#fff;
+}
+
+.main {
+    max-width: 1280px;
+    margin: auto;
+    padding-top: 54px;
+    display: flex;
+}
+.main-info{
+    flex-grow: 1;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /*разюрасываем элементы по краям*/
+}
+
+
+.home-image path{
+    opacity:0;
+    cursor: pointer;
+}
+
+.home-image path:hover{
+    opacity:1;
+}
+
+.counter-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counter-button {
+    cursor: pointer;
+    background-color:#fff;
+    border: none;
+}
+
+.counter-arrow-down{
+    transform: rotateX(180deg); /*использовали одну икноку, развернули стрелку*/
+}
+
+.main-title{
+    margin: 0;
+    font-family: "Bebas Neue Cyrillic", sans-serif;
+    font-weight: normal;
+    font-size: 37px;
+    line-height: 37px;
+    color: #635854;
+}
+
+.floor-counter{
+    color: #635854;
+    font-family:"Bebas Neue Cyrillic", sans-serif;
+    font-size: 124px;
+    margin-top: 10px;
+
+}
+
+.button-primary{
+    background: #3596F5;
+    border-radius: 6px;
+    color:#fff;
+    border: none;
+    padding: 16px 36px;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed; /*фиксированная позиция, поверх всего сайта*/
+    left: 0; /* приклеили к левому краю */
+    top: 0; /* приклеили к верху */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8); /* полупрозрачный фоновый черный цвет */
+    display:flex; /* родительский элемент гибкий */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(0); /*сожмется в 0*/
+    transition: opacity 0.2s;
+}
+
+/* когда модальное окно открыто опасити на 1 */
+.is-open {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal-dialog{
+    position: relative; /* чтобы кнопка крестика ориентировалась здесь */
+    max-width: 1000px;
+    min-height: 565px;
+    background-color:#fff;
+    flex-grow: 1;
+    display: flex;
+    opacity: 0;
+    transform: translateY(-10%);
+    transition: transform 0.2s, opacity 0.2s;
+    transition-delay: 0.2s;
+}
+
+.is-open > .modal-dialog {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.modal-image {
+    background-color: #EBEBEB;
+    width: 60%;
+    text-align: center; /* весь текст по центру */
+    padding: 50px;
+}
+
+.flats path {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.flats path:hover{
+    opacity: 1;
+}
+
+.modal-title {
+    font-family: 'Bebas Neue Cyrillic', sans-serif;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: 10;
+    margin-bottom: 25px;
+}
+
+.main-info {
+    width: 40%;
+    padding: 50px 46px;
+}
+
+.flat-list {
+    list-style: none; /* отключили точки */
+    margin-top: 55px;
+}
+
+.flat-item{
+    margin-bottom: 10px;
+}
+
+.flat-link {
+    font-size: 16px;
+    line-height: 19px;
+    color:#635854; 
+    text-decoration: none;
+}
+
+.flat-link:hover {
+    color: #3596F5;
+    text-decoration: underline; /* подчеркивается */
+
+}
+
+.modal-alert {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #635854;
+    margin-top: 56px;
+}
+
+.modal-close-button {
+    position: absolute;
+    right: 27px;
+    top:38px;
+    cursor: pointer;
+    border:none;
+    background-color:#fff;
+
+}
